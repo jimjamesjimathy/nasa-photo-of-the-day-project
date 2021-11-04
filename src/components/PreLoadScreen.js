@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-
 // Loading Screen on Page Load
 export default class PreLoadScreen extends Component {
   constructor(props) {

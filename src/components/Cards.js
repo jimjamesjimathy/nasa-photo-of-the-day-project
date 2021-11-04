@@ -1,8 +1,25 @@
 import React, { Component } from "react";
 import "react-datepicker/dist/react-datepicker.css";
 import { ReadableText } from "./styled-components/ReadableText";
-import { makeStyles } from "@material-ui/core/styles";
+// import { makeStyles } from "@material-ui/core/styles";
 import Tooltip from "@material-ui/core/Tooltip";
+import styled from 'styled-components';
+
+
+
+const StyledContainer = styled.div`
+  height: 100vh;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  background-image: linear-gradient(to left top,var(--lBlue), var(--text));
+`;
+
+const Titleh1 = styled.h1`
+  font-size: 5rem;
+  color: #000;
+`;
+
 
 export default class Objects extends Component {
   render() {
@@ -10,9 +27,9 @@ export default class Objects extends Component {
       return <h1>Loading...</h1>;
     }
     return (
-      <div className="card">
+      <StyledContainer className="card">
         {/* Title */}
-        <h1>{this.props.data[0].title}</h1>
+        <Titleh1>{this.props.data[0].title}</Titleh1>
         {/* Youtube Video */}
         {this.props.data[0].url.includes("image") ? (
           <Tooltip title="Click on image to view the image in HD">
@@ -38,7 +55,7 @@ export default class Objects extends Component {
         {/* Description */}
         <ReadableText>{this.props.data[0].explanation}</ReadableText>
         {/* <Placeholder dates={this.state.startDate} /> */}
-      </div>
+      </StyledContainer>
     );
   }
 }
